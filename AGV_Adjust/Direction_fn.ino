@@ -7,27 +7,27 @@ void motorsetup() {
   pinMode(ML_IN2, OUTPUT);
   pinMode(ML_IN3, OUTPUT);
   pinMode(ML_IN4, OUTPUT);
-  pinMode(L_ENA, OUTPUT);
-  pinMode(L_ENB, OUTPUT);
-  pinMode(R_ENA, OUTPUT);
-  pinMode(R_ENB, OUTPUT);
+  pinMode(FL_ENA, OUTPUT);
+  pinMode(BL_ENB, OUTPUT);
+  pinMode(BR_ENA, OUTPUT);
+  pinMode(FR_ENB, OUTPUT);
   stop(500);
 
 }
 void forward(int d) {
-  analogWrite(R_ENA, SpeedM1);
-  analogWrite(R_ENB, SpeedM2);
-  analogWrite(L_ENB, SpeedM3);
-  analogWrite(L_ENA, SpeedM4);
+  analogWrite(BR_ENA, SpeedM1); //Pin speed //backright motor
+  analogWrite(FR_ENB, SpeedM2); //Pin speed //frontright motor
+  analogWrite(BL_ENB, SpeedM3); //Pin speed //backleft motor
+  analogWrite(FL_ENA, SpeedM4); //Pin speed //frontleft motor
 
-  digitalWrite(MR_IN1, HIGH);  //motor1
-  digitalWrite(MR_IN2, LOW);   //motor1
-  digitalWrite(MR_IN3, HIGH);  //motor2
-  digitalWrite(MR_IN4, LOW);   //motor2
-  digitalWrite(ML_IN1, HIGH);  //motor4
-  digitalWrite(ML_IN2, LOW);   //motor4
-  digitalWrite(ML_IN3, HIGH);  //motor3
-  digitalWrite(ML_IN4, LOW);   //motor3
+  digitalWrite(MR_IN1, HIGH);  //backright motor
+  digitalWrite(MR_IN2, LOW);   //backright motor
+  digitalWrite(MR_IN3, HIGH);  //frontright motor
+  digitalWrite(MR_IN4, LOW);   //frontright motor
+  digitalWrite(ML_IN1, HIGH);  //frontleft motor
+  digitalWrite(ML_IN2, LOW);   //frontleft motor
+  digitalWrite(ML_IN3, HIGH);  //backleft motor
+  digitalWrite(ML_IN4, LOW);   //backleft motor
   delay(d);
 }
 
@@ -68,13 +68,13 @@ void slide_right_backward(int d) {
 }
 
 void stop(int d) {
-  digitalWrite(MR_IN1, LOW);  //motor1
-  digitalWrite(MR_IN2, LOW);  //motor1
-  digitalWrite(MR_IN3, LOW);  //motor2
-  digitalWrite(MR_IN4, LOW);  //motor2
-  digitalWrite(ML_IN3, LOW);  //motor3
-  digitalWrite(ML_IN4, LOW);  //motor3
-  digitalWrite(ML_IN1, LOW);  //motor4
-  digitalWrite(ML_IN2, LOW);  //motor4
+  digitalWrite(MR_IN1, LOW);  //backright motor
+  digitalWrite(MR_IN2, LOW);  //backright motor
+  digitalWrite(MR_IN3, LOW);  //frontright motor
+  digitalWrite(MR_IN4, LOW);  //frontright motor
+  digitalWrite(ML_IN3, LOW);  //backleft motor
+  digitalWrite(ML_IN4, LOW);  //backleft motor
+  digitalWrite(ML_IN1, LOW);  //frontleft motor
+  digitalWrite(ML_IN2, LOW);  //frontleft motor
   delay(d);
 }
